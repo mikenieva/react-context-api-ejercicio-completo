@@ -1,14 +1,18 @@
 /* eslint-disable import/no-anonymous-default-export */
 import {
-    LEER_TAREAS
+    AGREGAR_TAREAS
 } from './../../types'
 
 
 export default (state, action) => {
-    switch(action){
-        case LEER_TAREAS:
+    switch(action.type){
+        case AGREGAR_TAREAS:
             return {
-                ...state
+                ...state,
+                tareas: [
+                    ...state.tareas, 
+                    action.payload
+                ]
             }
 
         default:

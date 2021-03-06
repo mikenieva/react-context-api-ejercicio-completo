@@ -1,5 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
+
+import Tareas from './components/Tareas'
+import Login from './components/Login'
 
 import {
   BrowserRouter as Router,
@@ -13,9 +15,12 @@ import AuthState from './context/autenticacion/AuthState'
 function App() {
   return (
     <TareasState>
-      <div className="App">
-        Hola
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/tareas" component={Tareas} />
+        </Switch>
+      </Router>
     </TareasState>
   );
 }

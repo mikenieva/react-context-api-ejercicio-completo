@@ -1,5 +1,5 @@
 import React, {useReducer} from 'react'
-import { LEER_TAREAS } from '../../types'
+import { AGREGAR_TAREAS } from '../../types'
 
 import TareasContext from './TareasContext'
 import TareasReducer from './TareasReducer'
@@ -9,9 +9,7 @@ export default function TareasState (props){
     // 1. INITIAL STATE (ESTADO INICIAL)
     // Siempre es un objeto
     const initialState = {
-        tareas: [
-            {id: 1, nombre: "Aprender Context API"}
-        ]
+        tareas: []
     }
 
 
@@ -26,10 +24,13 @@ export default function TareasState (props){
 
     // 3. FUNCIONES QUE DISPARAN LOS REDUCERS
 
-    const leerTareas = () => {
+    const agregarTareas = (e, data) => {
+        e.preventDefault()
+
         dispatch({
-            type: LEER_TAREAS,
-            payload: null
+            // SON EL action.XXXXXX
+            type: AGREGAR_TAREAS,
+            payload: data
         })
     }
 
@@ -39,7 +40,8 @@ export default function TareasState (props){
         <TareasContext.Provider
             value={{
                 tareas: state.tareas,
-                leerTareas
+                botellasDeAgua: 15,
+                agregarTareas
             }}
         >
             {props.children}

@@ -1,1 +1,1 @@
-export const LEER_TAREAS = 'LEER_TAREAS'
+export const AGREGAR_TAREAS = 'AGREGAR_TAREAS'
